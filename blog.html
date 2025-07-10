@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StyleEthniCraft Blog - Shopping Tips & Cultural Tableware Inspiration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reuse styles from main.css or add specific blog styles */
+        :root {
+            --primary-rust: #B3472F;
+            --primary-ivory: #FFFDF8;
+            --primary-indigo: #2F3B47;
+            --accent-gold: #B78D65;
+            --accent-green: #6B7D5D;
+            --text-dark: #333333;
+            --text-light: #777777;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--primary-ivory);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant', serif;
+            font-weight: 600;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles (same as index.html) */
+         /* Header Styles */
+        header {
+            background-color: var(--primary-ivory);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-family: 'Cormorant', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-rust);
+        }
+        
+        .logo span {
+            color: var(--primary-indigo);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-rust);
+        }
+        
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--primary-rust);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+        }
+        
+        /* Cart Dropdown */
+        .cart-dropdown {
+            position: absolute;
+            right: 0;
+            top: 100%;
+            width: 350px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            padding: 20px;
+            z-index: 10;
+            display: none;
+        }
+        
+        .cart-dropdown.active {
+            display: block;
+        }
+        
+        .cart-dropdown h3 {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .cart-item {
+            display: flex;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+        
+        .cart-item-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 15px;
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-title {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-price {
+            color: var(--primary-rust);
+            font-weight: 600;
+        }
+        
+        .remove-item {
+            color: var(--text-light);
+            font-size: 12px;
+            cursor: pointer;
+        }
+        
+        .remove-item:hover {
+            color: var(--primary-rust);
+        }
+        
+        .cart-total {
+            font-weight: 600;
+            margin-top: 15px;
+            text-align: right;
+        }
+        
+        .cart-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        /* Blog Specific Styles */
+        .blog-header {
+            background-color: var(--primary-indigo);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .blog-header h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+        
+        .blog-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .blog-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .blog-card.with-image .blog-content {
+            padding: 30px;
+        }
+        
+        .blog-card.no-image .blog-content {
+            padding: 40px;
+        }
+        
+        .blog-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+        
+        .blog-meta {
+            display: flex;
+            margin-bottom: 15px;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+        
+        .blog-meta span {
+            margin-right: 15px;
+        }
+        
+        .blog-meta .category {
+            color: var(--primary-rust);
+            font-weight: 500;
+        }
+        
+        .blog-title {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: var(--primary-indigo);
+        }
+        
+        .blog-excerpt {
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+        
+        .read-more {
+            color: var(--primary-rust);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .read-more::after {
+            content: '→';
+            margin-left: 5px;
+            transition: margin-left 0.3s ease;
+        }
+        
+        .read-more:hover::after {
+            margin-left: 10px;
+        }
+        
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .tag {
+            background-color: var(--primary-ivory);
+            color: var(--text-light);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .tag:hover {
+            background-color: var(--primary-rust);
+            color: white;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background-color: var(--primary-ivory);
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 60px;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .newsletter h2 {
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: var(--text-light);
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .newsletter-form button {
+            padding: 12px 20px;
+            background-color: var(--primary-rust);
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Footer (same as index.html) */
+        footer {
+            background-color: var(--primary-indigo);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-rust);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ccc;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-rust);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #ccc;
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 15px;
+            }
+            
+            .blog-header h1 {
+                font-size: 36px;
+            }
+            
+            .blog-img {
+                height: 250px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 4px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 4px;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .blog-title {
+                font-size: 24px;
+            }
+            
+            .blog-card.with-image .blog-content,
+            .blog-card.no-image .blog-content {
+                padding: 25px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Style<span>Ethni</span>Craft</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li>
+                        <div class="cart-icon">
+                            <span>🛒</span>
+                            <span class="cart-count">0</span>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Blog Header -->
+    <section class="blog-header">
+        <div class="container">
+            <h1>Cultural Tableware Stories & Shopping Tips</h1>
+            <p>Discover artisan stories, cultural traditions, and expert advice for selecting and caring for your handcrafted tableware collection</p>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <main class="container">
+        <div class="blog-grid">
+            <!-- Blog Post 1 (With Image) -->
+            <article class="blog-card with-image">
+                <img src="b1.avif" alt="Indian Thali Set Styling" class="blog-img">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="category">Table Setting Ideas</span>
+                        <span>June 15, 2023</span>
+                        <span>8 min read</span>
+                    </div>
+                    <h2 class="blog-title">How to Style Traditional Indian Thali Sets for Modern Dining</h2>
+                    <p class="blog-excerpt">Discover creative ways to incorporate handcrafted thali sets into your contemporary table settings. From fusion dinner parties to everyday meals, learn how to honor the cultural significance while making it work for your lifestyle...</p>
+                    <a href="#" class="read-more">Read more</a>
+                    <div class="blog-tags">
+                        <a href="#" class="tag">#indiancraft</a>
+                        <a href="#" class="tag">#tablescaping</a>
+                        <a href="#" class="tag">#fusiondining</a>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Blog Post 2 (No Image) -->
+            <article class="blog-card no-image">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="category">Shopping Tips</span>
+                        <span>June 8, 2023</span>
+                        <span>5 min read</span>
+                    </div>
+                    <h2 class="blog-title">5 Essential Questions to Ask Before Buying Handcrafted Tableware</h2>
+                    <p class="blog-excerpt">Shopping for artisanal tableware? Don't make a purchase without asking these key questions about materials, care, and authenticity. Our guide helps you make informed decisions and avoid common pitfalls when investing in cultural pieces...</p>
+                    <a href="#" class="read-more">Read more</a>
+                    <div class="blog-tags">
+                        <a href="#" class="tag">#buyingguide</a>
+                        <a href="#" class="tag">#authenticity</a>
+                        <a href="#" class="tag">#shoppingtips</a>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Blog Post 3 (With Image) -->
+            <article class="blog-card with-image">
+                <img src="b2.avif" alt="Japanese Tableware" class="blog-img">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="category">Cultural Spotlight</span>
+                        <span>May 28, 2023</span>
+                        <span>10 min read</span>
+                    </div>
+                    <h2 class="blog-title">The Art of Japanese Tableware: From Wabi-Sabi to Your Table</h2>
+                    <p class="blog-excerpt">Explore the philosophy behind traditional Japanese tableware and how imperfections are celebrated as part of the beauty. We interview master artisan Hiroshi Yamamoto about centuries-old techniques still used today in creating these timeless pieces...</p>
+                    <a href="#" class="read-more">Read more</a>
+                    <div class="blog-tags">
+                        <a href="#" class="tag">#japanesecraft</a>
+                        <a href="#" class="tag">#wabisabi</a>
+                        <a href="#" class="tag">#artisanprofile</a>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Blog Post 4 (No Image) -->
+            <article class="blog-card no-image">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="category">Shopping Tips</span>
+                        <span>May 20, 2023</span>
+                        <span>6 min read</span>
+                    </div>
+                    <h2 class="blog-title">Mixing & Matching Cultural Tableware: A Beginner's Guide</h2>
+                    <p class="blog-excerpt">Want to create an eclectic table setting but worried about clashing styles? Learn our 3 golden rules for successfully combining tableware from different cultures without losing cohesion or respect for the original traditions...</p>
+                    <a href="#" class="read-more">Read more</a>
+                    <div class="blog-tags">
+                        <a href="#" class="tag">#stylingtips</a>
+                        <a href="#" class="tag">#eclecticdecor</a>
+                        <a href="#" class="tag">#beginnerfriendly</a>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Blog Post 5 (With Image) -->
+            <article class="blog-card with-image">
+                <img src="b3.webp" alt="Moroccan Tableware" class="blog-img">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="category">Cultural Spotlight</span>
+                        <span>May 12, 2023</span>
+                        <span>12 min read</span>
+                    </div>
+                    <h2 class="blog-title">The Symbolism Behind Moroccan Tableware Patterns</h2>
+                    <p class="blog-excerpt">Every curve and color in traditional Moroccan tableware tells a story. Decode the geometric patterns and discover how these designs reflect mathematical principles, spiritual beliefs, and natural elements from North African landscapes...</p>
+                    <a href="#" class="read-more">Read more</a>
+                    <div class="blog-tags">
+                        <a href="#" class="tag">#moroccandesign</a>
+                        <a href="#" class="tag">#symbolism</a>
+                        <a href="#" class="tag">#culturalheritage</a>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Blog Post 6 (No Image) -->
+            <article class="blog-card no-image">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="category">Shopping Tips</span>
+                        <span>May 5, 2023</span>
+                        <span>7 min read</span>
+                    </div>
+                    <h2 class="blog-title">How to Spot Authentic Handcrafted Tableware (And Avoid Imitations)</h2>
+                    <p class="blog-excerpt">The market is flooded with mass-produced items masquerading as handcrafted goods. Learn the telltale signs of genuine artisan work versus factory replicas, and why supporting authentic craftsmanship matters more than ever...</p>
+                    <a href="#" class="read-more">Read more</a>
+                    <div class="blog-tags">
+                        <a href="#" class="tag">#authenticity</a>
+                        <a href="#" class="tag">#shoppingtips</a>
+                        <a href="#" class="tag">#ethicalshopping</a>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Blog Post 7 (With Image) -->
+            <article class="blog-card with-image">
+                <img src="b4.avif" alt="Sustainable Tableware" class="blog-img">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="category">Sustainability</span>
+                        <span>April 28, 2023</span>
+                        <span>9 min read</span>
+                    </div>
+                    <h2 class="blog-title">Sustainable Tableware: How Traditional Crafts Lead the Eco-Conscious Movement</h2>
+                    <p class="blog-excerpt">Discover how indigenous crafting techniques naturally align with sustainable practices. From natural dyes to zero-waste production methods, traditional artisans have been practicing eco-friendly creation long before it became a trend...</p>
+                    <a href="#" class="read-more">Read more</a>
+                    <div class="blog-tags">
+                        <a href="#" class="tag">#sustainability</a>
+                        <a href="#" class="tag">#ecofriendly</a>
+                        <a href="#" class="tag">#traditionalcraft</a>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Blog Post 8 (With Image) -->
+            <article class="blog-card with-image">
+                <img src="b5.webp" alt="Brass Tableware Care" class="blog-img">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="category">Care Guide</span>
+                        <span>April 20, 2023</span>
+                        <span>6 min read</span>
+                    </div>
+                    <h2 class="blog-title">The Complete Guide to Caring for Brass Tableware</h2>
+                    <p class="blog-excerpt">Brass tableware develops a beautiful patina over time, but improper care can lead to damage. Learn traditional methods for cleaning, polishing, and storing brass items to maintain their beauty while embracing the natural aging process...</p>
+                    <a href="#" class="read-more">Read more</a>
+                    <div class="blog-tags">
+                        <a href="#" class="tag">#careguide</a>
+                        <a href="#" class="tag">#brasscare</a>
+                        <a href="#" class="tag">#maintenance</a>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Blog Post 9 (No Image) -->
+            <article class="blog-card no-image">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="category">Shopping Tips</span>
+                        <span>April 15, 2023</span>
+                        <span>5 min read</span>
+                    </div>
+                    <h2 class="blog-title">Building a Thoughtful Tableware Collection: Quality Over Quantity</h2>
+                    <p class="blog-excerpt">Resist the urge to accumulate - learn how to curate a meaningful collection of cultural tableware that tells your story. Our expert tips help you make intentional purchases that you'll cherish for years to come...</p>
+                    <a href="#" class="read-more">Read more</a>
+                    <div class="blog-tags">
+                        <a href="#" class="tag">#curatedcollection</a>
+                        <a href="#" class="tag">#mindfulshopping</a>
+                        <a href="#" class="tag">#qualityoverquantity</a>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Blog Post 10 (With Image) -->
+            <article class="blog-card with-image">
+                <img src="b6.avif" alt="Global Table Setting" class="blog-img">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="category">Table Setting Ideas</span>
+                        <span>April 8, 2023</span>
+                        <span>8 min read</span>
+                    </div>
+                    <h2 class="blog-title">Global Fusion: Creating a Multicultural Table Setting for Special Occasions</h2>
+                    <p class="blog-excerpt">Celebrate diversity at your next gathering with our step-by-step guide to designing a table that honors multiple cultures harmoniously. See how to combine colors, textures, and serving pieces from different traditions with respect and creativity...</p>
+                    <a href="#" class="read-more">Read more</a>
+                    <div class="blog-tags">
+                        <a href="#" class="tag">#tablescaping</a>
+                        <a href="#" class="tag">#fusiondining</a>
+                        <a href="#" class="tag">#entertaining</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Join Our Cultural Tableware Community</h2>
+            <p>Subscribe to receive new blog posts, cultural insights, and exclusive offers on handcrafted tableware. Plus, get our free guide: "10 Tips for Authentic Cultural Tableware Shopping"</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="#">Plates & Thalis</a></li>
+                        <li><a href="#">Bowls & Katoris</a></li>
+                        <li><a href="#">Cups & Glassware</a></li>
+                        <li><a href="#">Dining Sets</a></li>
+                        <li><a href="#">Serving & Decor</a></li>
+                        <li><a href="#">Festive & Gift Boxes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Artisan Profiles</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Help</h3>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Care Instructions</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>StyleEthniCraft LLC</p>
+                    <p>123 Cultural Lane</p>
+                    <p>Heritage City, HC 98765</p>
+                    <p>Phone: (555) 123-4567</p>
+                    <p>Email: hello@styleethnicraft.com</p>
+                    <div class="social-links">
+                        <a href="#">📱</a>
+                        <a href="#">📘</a>
+                        <a href="#">📷</a>
+                        <a href="#">🐦</a>
+                        <a href="#">📌</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 StyleEthniCraft. All rights reserved.</p>
+                <p>
+                    <a href="privacy.html">Privacy Policy</a> | 
+                    <a href="terms.html">Terms of Service</a> | 
+                    <a href="#">Accessibility</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script to handle newsletter form submission
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            alert(`Thank you for subscribing with ${email}! Your free guide will be sent shortly.`);
+            this.querySelector('input').value = '';
+        });
+    </script>
+</body>
+</html>

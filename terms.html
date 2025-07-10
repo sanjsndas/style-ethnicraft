@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions - StyleEthniCraft</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-rust: #B3472F;
+            --primary-ivory: #FFFDF8;
+            --primary-indigo: #2F3B47;
+            --accent-gold: #B78D65;
+            --accent-green: #6B7D5D;
+            --text-dark: #333333;
+            --text-light: #777777;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--primary-ivory);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant', serif;
+            font-weight: 600;
+            color: var(--primary-indigo);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-rust);
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--primary-indigo);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+       /* Header Styles */
+        header {
+            background-color: var(--primary-ivory);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-family: 'Cormorant', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-rust);
+        }
+        
+        .logo span {
+            color: var(--primary-indigo);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-rust);
+        }
+        
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--primary-rust);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+        }
+        
+        /* Cart Dropdown */
+        .cart-dropdown {
+            position: absolute;
+            right: 0;
+            top: 100%;
+            width: 350px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            padding: 20px;
+            z-index: 10;
+            display: none;
+        }
+        
+        .cart-dropdown.active {
+            display: block;
+        }
+        
+        .cart-dropdown h3 {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .cart-item {
+            display: flex;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+        
+        .cart-item-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 15px;
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-title {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-price {
+            color: var(--primary-rust);
+            font-weight: 600;
+        }
+        
+        .remove-item {
+            color: var(--text-light);
+            font-size: 12px;
+            cursor: pointer;
+        }
+        
+        .remove-item:hover {
+            color: var(--primary-rust);
+        }
+        
+        .cart-total {
+            font-weight: 600;
+            margin-top: 15px;
+            text-align: right;
+        }
+        
+        .cart-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background-color: var(--primary-indigo);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .page-header h1 {
+            font-size: 42px;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .breadcrumb li {
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .breadcrumb li:after {
+            content: '/';
+            position: absolute;
+            right: -12px;
+            color: var(--accent-gold);
+        }
+        
+        .breadcrumb li:last-child:after {
+            display: none;
+        }
+        
+        .breadcrumb a {
+            color: var(--accent-gold);
+        }
+        
+        /* Terms Content */
+        .terms-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            margin-bottom: 60px;
+        }
+        
+        .terms-content h2 {
+            font-size: 28px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        
+        .terms-content h3 {
+            font-size: 22px;
+            margin-top: 30px;
+        }
+        
+        .terms-content p {
+            margin-bottom: 20px;
+        }
+        
+        .terms-content ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .terms-content li {
+            margin-bottom: 10px;
+        }
+        
+        .highlight-box {
+            background-color: var(--primary-ivory);
+            border-left: 4px solid var(--primary-rust);
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-indigo);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            color: white;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-rust);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ccc;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-rust);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #ccc;
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 15px;
+            }
+            
+            .terms-content {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-header h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Style<span>Ethni</span>Craft</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li>
+                        <div class="cart-icon">
+                            <span>🛒</span>
+                            <span class="cart-count">0</span>
+                            <div class="cart-dropdown">
+                                <h3>Your Cart</h3>
+                                <div class="cart-items">
+                                    <!-- Cart items will be added here dynamically -->
+                                </div>
+                                <div class="cart-total">
+                                    Total: $0.00
+                                </div>
+                                <div class="cart-actions">
+                                    <button class="btn btn-outline">View Cart</button>
+                                    <button class="btn">Checkout</button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Terms and Conditions</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li>Terms and Conditions</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Terms Content -->
+    <section class="container">
+        <div class="terms-content">
+            <h2>Introduction</h2>
+            <p>Welcome to StyleEthniCraft ("we," "our," or "us"). These Terms and Conditions ("Terms") govern your use of our website located at www.styleethnicraft.com ("Website") and all related services, products, and content we provide (collectively, the "Services"). By accessing or using our Services, you ("you," "your," or "user") agree to be bound by these Terms. If you do not agree with any part of these Terms, you must not use our Services.</p>
+            
+            <div class="highlight-box">
+                <p>These Terms constitute a legally binding agreement between you and StyleEthniCraft. We reserve the right to modify these Terms at any time. Your continued use of the Services after such modifications constitutes your acceptance of the revised Terms.</p>
+            </div>
+            
+            <h2>1. Eligibility and Account Registration</h2>
+            <h3>1.1 Eligibility</h3>
+            <p>To use our Services, you must be at least 18 years old or the age of majority in your jurisdiction, whichever is higher. By using our Services, you represent and warrant that you meet these eligibility requirements.</p>
+            
+            <h3>1.2 Account Registration</h3>
+            <p>Certain features of our Services may require you to register for an account. When registering, you agree to:</p>
+            <ul>
+                <li>Provide accurate, current, and complete information</li>
+                <li>Maintain and promptly update your account information</li>
+                <li>Maintain the security of your account credentials</li>
+                <li>Accept responsibility for all activities that occur under your account</li>
+                <li>Immediately notify us of any unauthorized use of your account</li>
+            </ul>
+            
+            <h3>1.3 Account Suspension or Termination</h3>
+            <p>We reserve the right to suspend or terminate your account at our sole discretion if we believe you have violated these Terms or applicable laws, or for any other reason we deem appropriate.</p>
+            
+            <h2>2. Products and Purchases</h2>
+            <h3>2.1 Product Descriptions</h3>
+            <p>We strive to accurately describe all products available on our Website. However, we do not warrant that product descriptions, colors, or other content are accurate, complete, reliable, current, or error-free. All products are subject to availability and we reserve the right to discontinue any product at any time.</p>
+            
+            <h3>2.2 Pricing</h3>
+            <p>All prices are shown in US dollars unless otherwise indicated. We reserve the right to change prices at any time without notice. The price charged for a product will be the price in effect at the time the order is placed.</p>
+            
+            <h3>2.3 Orders and Acceptance</h3>
+            <p>Your order constitutes an offer to purchase products from us. We reserve the right to accept or decline your order for any reason, including but not limited to product availability, errors in product or pricing information, or suspected fraudulent activity.</p>
+            
+            <h3>2.4 Payment</h3>
+            <p>We accept various payment methods as indicated on our Website. You represent and warrant that you have the legal right to use any payment method you provide. You agree to pay all charges incurred by users of your account at the prices in effect when such charges are incurred.</p>
+            
+            <h3>2.5 Taxes</h3>
+            <p>You are responsible for any sales, use, value-added, or other taxes associated with your order. Where required, we will collect and remit sales tax on orders shipped to applicable states.</p>
+            
+            <h2>3. Shipping and Delivery</h2>
+            <h3>3.1 Shipping Policy</h3>
+            <p>We ship products worldwide using various carriers. Shipping costs and estimated delivery times are provided at checkout. Delivery times are estimates only and we cannot guarantee delivery by any specific date.</p>
+            
+            <h3>3.2 International Orders</h3>
+            <p>International orders may be subject to customs duties, taxes, and fees which are the responsibility of the customer. We are not responsible for any delays caused by customs or import procedures.</p>
+            
+            <h3>3.3 Risk of Loss</h3>
+            <p>All items purchased from our Website are delivered by a third-party carrier. Title and risk of loss pass to you upon our delivery to the carrier.</p>
+            
+            <h2>4. Returns and Refunds</h2>
+            <h3>4.1 Return Policy</h3>
+            <p>We accept returns within 30 days of delivery for most items. To be eligible for a return, items must be unused, in their original packaging, and in the same condition as received. Certain items may not be returnable, as specified on the product page.</p>
+            
+            <h3>4.2 Refund Process</h3>
+            <p>Once your return is received and inspected, we will notify you of the approval or rejection of your refund. If approved, your refund will be processed to your original payment method within 10 business days.</p>
+            
+            <h3>4.3 Exchanges</h3>
+            <p>We only replace items if they are defective or damaged. If you need to exchange an item, please contact our customer service.</p>
+            
+            <h2>5. Intellectual Property</h2>
+            <h3>5.1 Ownership</h3>
+            <p>All content on our Website, including text, graphics, logos, images, and software, is our property or the property of our licensors and is protected by copyright, trademark, and other intellectual property laws.</p>
+            
+            <h3>5.2 Limited License</h3>
+            <p>We grant you a limited, non-exclusive, non-transferable license to access and use our Website for personal, non-commercial purposes in accordance with these Terms.</p>
+            
+            <h3>5.3 Restrictions</h3>
+            <p>You may not:</p>
+            <ul>
+                <li>Modify, copy, or create derivative works of our content</li>
+                <li>Use our content for any commercial purpose</li>
+                <li>Attempt to decompile or reverse engineer any software on our Website</li>
+                <li>Remove any copyright or other proprietary notations</li>
+                <li>Transfer the content to another person or "mirror" it on any other server</li>
+            </ul>
+            
+            <h2>6. User Conduct</h2>
+            <p>You agree not to use our Services to:</p>
+            <ul>
+                <li>Violate any laws or regulations</li>
+                <li>Infringe on the rights of others</li>
+                <li>Post false, inaccurate, or misleading information</li>
+                <li>Distribute viruses or other harmful computer code</li>
+                <li>Collect information about others without their consent</li>
+                <li>Interfere with the operation of our Services</li>
+                <li>Engage in any fraudulent activity</li>
+            </ul>
+            
+            <h2>7. Third-Party Links and Content</h2>
+            <p>Our Website may contain links to third-party websites or services that are not owned or controlled by us. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party websites or services. You acknowledge and agree that we shall not be responsible or liable for any damage or loss caused by your use of any third-party websites or services.</p>
+            
+            <h2>8. Disclaimers and Limitations of Liability</h2>
+            <h3>8.1 Disclaimer of Warranties</h3>
+            <p>OUR SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. WE DO NOT WARRANT THAT OUR SERVICES WILL BE UNINTERRUPTED, SECURE, OR ERROR-FREE.</p>
+            
+            <h3>8.2 Limitation of Liability</h3>
+            <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL STYLEETHNICRAFT, ITS DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING OUT OF OR RELATED TO YOUR USE OF OUR SERVICES, INCLUDING BUT NOT LIMITED TO LOST PROFITS, DATA LOSS, OR BUSINESS INTERRUPTION, WHETHER BASED ON WARRANTY, CONTRACT, TORT, OR ANY OTHER LEGAL THEORY.</p>
+            
+            <h3>8.3 Maximum Liability</h3>
+            <p>OUR TOTAL LIABILITY TO YOU FOR ANY CLAIMS ARISING OUT OF OR RELATED TO THESE TERMS OR YOUR USE OF OUR SERVICES SHALL NOT EXCEED THE AMOUNT YOU HAVE PAID TO US IN THE LAST SIX MONTHS.</p>
+            
+            <h2>9. Indemnification</h2>
+            <p>You agree to defend, indemnify, and hold harmless StyleEthniCraft and its affiliates, officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses, including reasonable attorneys' fees, arising out of or in any way connected with:</p>
+            <ul>
+                <li>Your use of our Services</li>
+                <li>Your violation of these Terms</li>
+                <li>Your violation of any third-party right, including intellectual property or privacy rights</li>
+                <li>Any content you submit or transmit through our Services</li>
+            </ul>
+            
+            <h2>10. Dispute Resolution</h2>
+            <h3>10.1 Governing Law</h3>
+            <p>These Terms shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of law provisions.</p>
+            
+            <h3>10.2 Arbitration</h3>
+            <p>Any dispute arising out of or relating to these Terms or your use of our Services shall be resolved through binding arbitration administered by the American Arbitration Association under its Commercial Arbitration Rules. The arbitration shall take place in San Francisco, California. Judgment on the award rendered by the arbitrator may be entered in any court having jurisdiction.</p>
+            
+            <h3>10.3 Class Action Waiver</h3>
+            <p>YOU AND STYLEETHNICRAFT AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY IN YOUR OR ITS INDIVIDUAL CAPACITY, AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS OR REPRESENTATIVE PROCEEDING.</p>
+            
+            <h2>11. General Provisions</h2>
+            <h3>11.1 Entire Agreement</h3>
+            <p>These Terms constitute the entire agreement between you and StyleEthniCraft regarding your use of our Services and supersede all prior agreements and understandings.</p>
+            
+            <h3>11.2 Severability</h3>
+            <p>If any provision of these Terms is found to be invalid or unenforceable, that provision shall be enforced to the maximum extent possible, and the remaining provisions shall remain in full force and effect.</p>
+            
+            <h3>11.3 Waiver</h3>
+            <p>Our failure to enforce any right or provision of these Terms shall not constitute a waiver of such right or provision unless acknowledged and agreed to by us in writing.</p>
+            
+            <h3>11.4 Assignment</h3>
+            <p>You may not assign or transfer these Terms or your rights under these Terms without our prior written consent. We may assign these Terms without restriction.</p>
+            
+            <h3>11.5 Force Majeure</h3>
+            <p>We shall not be liable for any failure or delay in performance due to events beyond our reasonable control, including but not limited to acts of God, war, terrorism, natural disasters, or internet or telecommunications outages.</p>
+            
+            <h2>12. Changes to These Terms</h2>
+            <p>We reserve the right to modify these Terms at any time. When we make changes, we will post the updated Terms on our Website and update the "Last Updated" date at the bottom of these Terms. Your continued use of our Services after such changes constitutes your acceptance of the new Terms.</p>
+            
+            <h2>13. Contact Information</h2>
+            <p>If you have any questions about these Terms, please contact us at:</p>
+            <p>StyleEthniCraft LLC<br>
+            123 Cultural Lane<br>
+            Heritage City, HC 98765<br>
+            Email: legal@styleethnicraft.com<br>
+            Phone: (555) 123-4567</p>
+            
+            <p class="highlight-box"><strong>Last Updated:</strong> January 1, 2023</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="#">Plates & Thalis</a></li>
+                        <li><a href="#">Bowls & Katoris</a></li>
+                        <li><a href="#">Cups & Glassware</a></li>
+                        <li><a href="#">Dining Sets</a></li>
+                        <li><a href="#">Serving & Decor</a></li>
+                        <li><a href="#">Festive & Gift Boxes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Artisan Profiles</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Help</h3>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Care Instructions</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>StyleEthniCraft LLC</p>
+                    <p>123 Cultural Lane</p>
+                    <p>Heritage City, HC 98765</p>
+                    <p>Phone: (555) 123-4567</p>
+                    <p>Email: hello@styleethnicraft.com</p>
+                    <div class="social-links">
+                        <a href="#">📱</a>
+                        <a href="#">📘</a>
+                        <a href="#">📷</a>
+                        <a href="#">🐦</a>
+                        <a href="#">📌</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 StyleEthniCraft. All rights reserved.</p>
+                <p>
+                    <a href="privacy.html">Privacy Policy</a> | 
+                    <a href="terms.html">Terms of Service</a> | 
+                    <a href="#">Accessibility</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
